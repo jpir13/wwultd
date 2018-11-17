@@ -39,7 +39,7 @@ class App extends Component {
         </header>
         <article>
           <p>
-            Are you planning a holiday? Or perhaps you need a getaway from the dark Finnish fall?<br /> What ever the case is, this <i>React.js</i> site will provide an answer for you. Try the example <code>things to do</code> below. 
+            Are you planning a holiday? Or perhaps you need a getaway from the dark Finnish fall?<br /> What ever the case is, this <i>React.js</i> site will provide an answer for you. Try the example <code>things to do</code> below.<br /> It will suggest suitable location for action in mind. 
             <ul>{listThings}</ul>
           </p>
         </article>
