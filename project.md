@@ -8,6 +8,6 @@
 
 # example activites:
     - ski
-    - play golf
+    - go golfing
     - watch football
     - go sun bathing
