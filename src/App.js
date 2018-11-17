@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-// if mouse not hovered, returns the short app name
+// displaying WWULTD, if full state null
 const label = full => {
   if (full === null) {
     return 'WWULTD';
@@ -9,6 +9,10 @@ const label = full => {
     return 'what would you like to do?';
 }
 
+const thingsToDo = ['go golfing', 'sunbathing', 'see a theatre', 'go hiking', 'see the Eiffel Tower'];
+const listThings = thingsToDo.map((thing) => 
+  <li>{thing}</li>
+  );
 class App extends Component {
   constructor(props) {
     super(props);
@@ -33,6 +37,10 @@ class App extends Component {
             {label(this.state.full)}
           </h1>
         </header>
+        <article>
+          Would you consider any of these interesting?
+          <ul>{listThings}</ul>
+        </article>
       </div>
     );
   }
