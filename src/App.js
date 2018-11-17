@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 
+// if mouse not hovered, returns the short app name
 const label = full => {
   if (full === null) {
-    return 'WWULTD?';
+    return 'WWULTD';
   }
     return 'what would you like to do?';
 }
@@ -13,15 +14,15 @@ class App extends Component {
     super(props);
     this.state = { full: null };
   }
+// simple mouseovers & out's for setting full either true or false
+  mouseOver() {
+    console.log("mouse hovered");
+    this.setState({ full: true });
+  }
 
   mouseOut() {
     console.log("mouse out");
     this.setState({ full: null });
-  }
-
-  mouseOver() {
-    console.log("mouse hovered");
-    this.setState({ full: true });
   }
 
   render() {
@@ -32,7 +33,6 @@ class App extends Component {
             {label(this.state.full)}
           </h1>
         </header>
-        test
       </div>
     );
   }
