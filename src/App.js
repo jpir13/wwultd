@@ -11,7 +11,7 @@ const label = full => {
 
 const thingsToDo = ['go golfing', 'sunbathing', 'see a theatre', 'go hiking', 'see the Eiffel Tower'];
 const listThings = thingsToDo.map((thing) => 
-  <li>{thing}</li>
+  <li><a href="#">{thing}</a></li>
   );
 class App extends Component {
   constructor(props) {
@@ -38,8 +38,10 @@ class App extends Component {
           </h1>
         </header>
         <article>
-          Would you consider any of these interesting?
-          <ul>{listThings}</ul>
+          <p>
+            Are you planning a holiday? Or perhaps you need a getaway from the dark Finnish fall?<br /> What ever the case is, this <i>React.js</i> site will provide an answer for you. Try the example <code>things to do</code> below. 
+            <ul>{listThings}</ul>
+          </p>
         </article>
       </div>
     );
