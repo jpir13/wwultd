@@ -20,14 +20,7 @@ const api_key = '083d0cdb1c7e13150cf1151ea50242bb';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {  full: null,
-                    country: undefined,
-                    city: undefined,
-                    temperature: undefined,
-                    description: undefined,
-                    humidity: undefined,
-                    error: undefined
-    };
+    this.state = {  full: null  };
   }
 // simple mouseovers & out's for setting full either true or false
   mouseOver() {
@@ -39,10 +32,14 @@ class App extends Component {
     console.log("mouse out");
     this.setState({ full: null });
   }
-
-  state = {
-
-  }
+state = {
+  country: undefined,
+  city: undefined,
+  temperature: undefined,
+  description: undefined,
+  humidity: undefined,
+  error: undefined
+};
 
   getWeather = async (e) => {
     const city = e.target.elements.city.value;

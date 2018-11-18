@@ -5,7 +5,6 @@ class Weather extends React.Component {
     render() {
 
         return (
-
             <div className="weather-info">
                 {
                     this.props.country && this.props.city && <p className="weather__key">Location:
