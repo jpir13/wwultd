@@ -12,7 +12,9 @@ class Info extends React.Component {
     render(){
         return(
             <div>
-            Are you planning a holiday? Or perhaps you need a getaway from the dark Finnish fall?<br /> What ever the case is, this <i>React.js</i> site will provide an answer for you. Try the example <code>things to do</code> below.<br /> It will suggest a suitable location for action in mind. 
+                <p>
+                    Are you planning a holiday? Or perhaps you need a getaway from the dark Finnish fall? What ever the case is, this <code>React.js</code> site will provide an answer for you.<br /> Try the example <code>things to do</code> below. It will suggest a suitable location for action in mind. 
+                </p>
             <ul>{listThings}</ul>
             </div>
         )
