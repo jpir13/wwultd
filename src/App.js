@@ -58,7 +58,7 @@ state = {
       })
     } else {
       this.setState({
-        error: "No search values.."
+        error: "Add city and country as search criterion"
       })
     }
   }
