@@ -2,22 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 import Form from './services/Form';
 import Weather from './services/Weather';
+import Info from './services/Info';
 
-// displaying short name, if full state null
+// displaying app's short name, if full state null
 const label = full => {
   if (full === null) {
     return 'WWULTD';
   }
     return 'what would you like to do?';
 }
-
-// things to do in an array
-const thingsToDo = ['go golfing', 'sunbathing', 'see a theatre', 'go hiking', 'see the Eiffel Tower'];
-const listThings = thingsToDo.map((thing) =>
-  <li key={thing.toString()}>
-    {thing}
-  </li>
-);
 
 // api key for openweather api
 const api_key = '083d0cdb1c7e13150cf1151ea50242bb';
@@ -48,7 +41,7 @@ class App extends Component {
     error: undefined
   };
 
-  // getWeather to use with the weahter api
+  // getWeather to use with the weather api
   getWeather = async (e) => {
     e.preventDefault();
 
@@ -76,26 +69,32 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 onMouseOut={() => this.mouseOut()} onMouseOver={() => this.mouseOver()}>
-            {label(this.state.full)}
-          </h1>
-        </header>
-        <article>
-            Are you planning a holiday? Or perhaps you need a getaway from the dark Finnish fall?<br /> What ever the case is, this <i>React.js</i> site will provide an answer for you. Try the example <code>things to do</code> below.<br /> It will suggest suitable location for action in mind. 
-            <ul>{listThings}</ul>
-            <Form getWeather={this.getWeather} />
-              <Weather
-                temperature={this.state.temperature}
-                city={this.state.city}
-                country={this.state.country}
-                humidity={this.state.humidity}
-                description={this.state.description}
-                error={this.state.error}
-              />
-        </article>
-      </div>
+      <div>
+        <div className="wrapper">
+          <div className="main">
+            <h1 onMouseOut={() => this.mouseOut()} onMouseOver={() => this.mouseOver()}>
+              {label(this.state.full)}
+            </h1>
+            <div className="container">
+              <div className="row">
+                <div className="col-md-5 col-sm-12 title-container">
+                  <Info />
+                </div>
+                <div className="col-md-7 col-sm-12 form-container">
+                  <Form getWeather={this.getWeather} />
+                  <Weather
+                    temperature={this.state.temperature}
+                    city={this.state.city}
+                    country={this.state.country}
+                    description={this.state.description}
+                    error={this.state.error}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      
     );
   }
 }
