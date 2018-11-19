@@ -45,7 +45,6 @@ class App extends Component {
     city: undefined,
     temperature: undefined,
     description: undefined,
-    humidity: undefined,
     error: undefined
   };
 
@@ -55,8 +54,8 @@ class App extends Component {
 
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
-    
-    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${api_key}`);
+
+    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${api_key}`);
     const response = await api_call.json();
     console.log(response);
 
@@ -66,7 +65,6 @@ class App extends Component {
         city: response.name,
         temperature: response.main.temp,       
         description: response.weather[0].description,
-        humidity: response.main.humidity,
         error: ""
       });
     } else {
