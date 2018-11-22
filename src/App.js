@@ -23,12 +23,12 @@ class App extends Component {
 
   // simple mouseovers & out's for setting full either true or false
   mouseOver() {
-    console.log("mouse hovered");
+    //console.log("mouse hovered");
     this.setState({ full: true });
   }
 
   mouseOut() {
-    console.log("mouse out");
+    //console.log("mouse out");
     this.setState({ full: null });
   }
 
