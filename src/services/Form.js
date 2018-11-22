@@ -5,15 +5,35 @@ class Form extends React.Component {
     return (
       <div>
         <form onSubmit={this.props.getWeather}>
-          <input type="text" name="city" placeholder="City" /> &nbsp;
-          <input type="text" name="country" placeholder="Country" /> <br />{" "}
-          <br />
-          <button>Get Weather</button>
+          <div className="form-group row">
+            <div className="col-xs-3">
+              <input
+                type="text"
+                name="city"
+                placeholder="City"
+                className="form-control"
+              />
+            </div>{" "}
+            &nbsp;
+            <div className="col-xs-3">
+              <input
+                type="text"
+                name="country"
+                placeholder="Country"
+                className="form-control"
+              />{" "}
+            </div>
+            <br />
+            <button className="btn btn-primary mb-2">Get Weather</button>
+            <button
+              onClick={this.props.getWeatherSuggest}
+              className="btn btn-danger mb-2"
+            >
+              Suggest me a location
+            </button>
+          </div>
         </form>
         <br />
-        <button onClick={this.props.getWeatherSuggest}>
-          Suggest me a location
-        </button>
       </div>
     );
   }
