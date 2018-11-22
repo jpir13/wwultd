@@ -12,15 +12,12 @@
 }
 
 .weather-info {
-  width: 60%;
-  font-size: 20px;
   font-weight: 200;
-  letter-spacing: 2px;
 }
 
 .weather-value {
-  color: #f16051;
-  border-bottom: solid 2px rgba(255,255,255,0.06);
+  color: #e98f29;
+  border-bottom: solid 2px rgba(255, 255, 255, 0.06);
   padding: 20px 0 20px 0;
   font-weight: 400;
 }
@@ -31,7 +28,7 @@
 
 .weather-field {
   color: #fff;
-  font-weight: 200;
+  font-weight: 150;
 }
 
 .weather-error {
