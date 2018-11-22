@@ -3,4 +3,4 @@
 
 * uses [OpenWeatherMaps API](https://openweathermap.org/)
 * suggests a location based on activity
-* possibility to search for current weather for any location
+* possibility to search current weather for any location
