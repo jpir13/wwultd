@@ -42,7 +42,8 @@ class App extends Component {
     city: undefined,
     temperature: undefined,
     description: undefined,
-    error: undefined
+    error: undefined,
+    cod: undefined
   };
 
   // getWeather to use with the form
@@ -58,7 +59,7 @@ class App extends Component {
     const response = await api_call.json();
     console.log(response);
 
-    if (city && country) {
+    if (city && country && response.cod === 200) {
       this.setState({
         country: response.sys.country,
         city: response.name,
@@ -68,10 +69,11 @@ class App extends Component {
       });
     } else {
       this.setState({
+        country: undefined,
         city: undefined,
         temperature: undefined,
         description: undefined,
-        error: "Add city and country as search criterion"
+        error: "Add city and country as search criterion & check format"
       });
     }
   };
