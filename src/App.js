@@ -12,6 +12,10 @@ const label = full => {
   return "what would you like to do?";
 };
 
+function getCity() {
+  document.getElementById("example").getAttribute("cityid");
+}
+
 // api key for openweather
 const api_key = "083d0cdb1c7e13150cf1151ea50242bb";
 
@@ -105,6 +109,32 @@ class App extends Component {
       error: ""
     });
   };
+
+  getWeatherExamples = async e => {
+    e.preventDefault();
+
+    // array of capital cities cityids
+    //const cities = [ "2514169", "5855797"
+    //];
+
+    // randomizing 1 from the array above
+    const cityID = getCity();
+
+    const api_call = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?id=${cityID}&units=metric&appid=${api_key}`
+    );
+    const response = await api_call.json();
+    console.log(response);
+
+    this.setState({
+      country: response.sys.country,
+      city: response.name,
+      temperature: response.main.temp,
+      description: response.weather[0].description,
+      error: ""
+    });
+  };
+
   render() {
     return (
       <div>
@@ -119,7 +149,7 @@ class App extends Component {
             <div className="container">
               <div className="row">
                 <div className="col-md-5 col-sm-12 title-container">
-                  <Info />
+                  <Info getWeatherExamples={this.getWeatherExamples} />
                 </div>
                 <div className="col-md-7 col-sm-12 form-container">
                   <Form
