@@ -67,6 +67,34 @@ class App extends Component {
     }
   };
 
+  getWeatherSuggest = async (e) => {
+    e.preventDefault();
+
+    const cities = [
+      "Espoo", "Lahti", "Helsinki", "Turku"
+    ];
+    const countries = [
+      "Finland", "Finland", "Finland", "Finland"
+    ]
+    
+
+    const city = cities[Math.floor(Math.random() * cities.length)];
+    const country = countries[Math.floor(Math.random() * countries.length)];
+    console.log(city);
+    console.log(country);
+
+    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${api_key}`);
+    const response = await api_call.json();
+    console.log(response);
+
+      this.setState({
+        country: response.sys.country,
+        city: response.name,
+        temperature: response.main.temp,       
+        description: response.weather[0].description,
+        error: ""
+      })
+    };
   render() {
     return (
       <div>
@@ -81,7 +109,9 @@ class App extends Component {
                   <Info />
                 </div>
                 <div className="col-md-7 col-sm-12 form-container">
-                  <Form getWeather={this.getWeather} />
+                  <Form 
+                  getWeather={this.getWeather} 
+                  getWeatherSuggest={this.getWeatherSuggest} />
                   <Weather
                     temperature={this.state.temperature}
                     city={this.state.city}
