@@ -41,7 +41,7 @@ class App extends Component {
     error: undefined
   };
 
-  // getWeather to use with the weather api
+  // getWeather to use with the form
   getWeather = async e => {
     e.preventDefault();
 
@@ -72,6 +72,7 @@ class App extends Component {
     }
   };
 
+  // used for weather suggestions (randomizing)
   getWeatherSuggest = async e => {
     e.preventDefault();
 
