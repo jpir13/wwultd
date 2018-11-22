@@ -12,7 +12,7 @@ const label = full => {
   return "what would you like to do?";
 };
 
-// api key for openweather api
+// api key for openweather
 const api_key = "083d0cdb1c7e13150cf1151ea50242bb";
 
 class App extends Component {
@@ -49,7 +49,7 @@ class App extends Component {
     const country = e.target.elements.country.value;
 
     const api_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${api_key}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${api_key}`
     );
     const response = await api_call.json();
     console.log(response);
@@ -75,16 +75,23 @@ class App extends Component {
   getWeatherSuggest = async e => {
     e.preventDefault();
 
-    const cities = ["Espoo", "Lahti", "Helsinki", "Turku"];
-    const countries = ["Finland", "Finland", "Finland", "Finland"];
+    // array of capital cities cityids
+    const cities = [
+      "2643743",
+      "2988507",
+      "6539761",
+      "3143244",
+      "2673730",
+      "5128581",
+      "2267057",
+      "524901"
+    ];
 
-    const city = cities[Math.floor(Math.random() * cities.length)];
-    const country = countries[Math.floor(Math.random() * countries.length)];
-    console.log(city);
-    console.log(country);
+    // randomizing 1 from the array above
+    const cityID = cities[Math.floor(Math.random() * cities.length)];
 
     const api_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${api_key}`
+      `https://api.openweathermap.org/data/2.5/weather?id=${cityID}&units=metric&appid=${api_key}`
     );
     const response = await api_call.json();
     console.log(response);
