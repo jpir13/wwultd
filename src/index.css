@@ -3,15 +3,9 @@ body {
   color: white;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 a:link {
@@ -31,7 +25,9 @@ a:active {
   text-decoration: underline;
 }
 
-ul {list-style: none}
+ul {
+  list-style: none;
+}
 
 li::before {
   content: "x";
@@ -39,5 +35,4 @@ li::before {
   display: inline-block;
   width: 1em;
   margin-left: -3em;
-  
 }

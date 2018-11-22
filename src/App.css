@@ -1,16 +1,3 @@
-.App {
-  text-align: center;
-  padding: 1em;
-}
-
-.App-header {
-  min-height: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-}
-
 .weather-info {
   font-weight: 200;
 }
