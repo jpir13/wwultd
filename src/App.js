@@ -115,11 +115,6 @@ class App extends Component {
   getWeatherExamples = async e => {
     e.preventDefault();
 
-    // array of capital cities cityids
-    //const cities = [ "2514169", "5855797"
-    //];
-
-    // randomizing 1 from the array above
     const cityID = getCity();
 
     const api_call = await fetch(
