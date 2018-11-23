@@ -12,10 +12,6 @@ const label = full => {
   return "what would you like to do?";
 };
 
-function getCity() {
-  document.getElementById("example").getAttribute("cityid");
-}
-
 // api key for openweather
 const api_key = "083d0cdb1c7e13150cf1151ea50242bb";
 
@@ -112,9 +108,65 @@ class App extends Component {
     });
   };
 
-  getWeatherExamples = async e => {
+  // used for Info part
+  getWeatherExamplesGolf = async e => {
     e.preventDefault();
 
+    // get city id from li element @Info
+    function getCity() {
+      const cID = document.getElementById("example").getAttribute("cityid");
+      return cID;
+    }
+    const cityID = getCity();
+
+    const api_call = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?id=${cityID}&units=metric&appid=${api_key}`
+    );
+    const response = await api_call.json();
+    console.log(response);
+
+    this.setState({
+      country: response.sys.country,
+      city: response.name,
+      temperature: response.main.temp,
+      description: response.weather[0].description,
+      error: ""
+    });
+  };
+
+  getWeatherExamplesSki = async e => {
+    e.preventDefault();
+
+    // get city id from li element @Info
+    function getCity() {
+      const cID = document.getElementById("example2").getAttribute("cityid");
+      return cID;
+    }
+    const cityID = getCity();
+
+    const api_call = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?id=${cityID}&units=metric&appid=${api_key}`
+    );
+    const response = await api_call.json();
+    console.log(response);
+
+    this.setState({
+      country: response.sys.country,
+      city: response.name,
+      temperature: response.main.temp,
+      description: response.weather[0].description,
+      error: ""
+    });
+  };
+
+  getWeatherExamplesSunBath = async e => {
+    e.preventDefault();
+
+    // get city id from li element @Info
+    function getCity() {
+      const cID = document.getElementById("example3").getAttribute("cityid");
+      return cID;
+    }
     const cityID = getCity();
 
     const api_call = await fetch(
@@ -146,7 +198,12 @@ class App extends Component {
             <div className="container">
               <div className="row">
                 <div className="col-md-5 col-sm-12 title-container">
-                  <Info getWeatherExamples={this.getWeatherExamples} />
+                  <Info
+                    getWeatherExamples={this.getWeatherExamples}
+                    getWeatherExamplesGolf={this.getWeatherExamplesGolf}
+                    getWeatherExamplesSki={this.getWeatherExamplesSki}
+                    getWeatherExamplesSunBath={this.getWeatherExamplesSunBath}
+                  />
                 </div>
                 <div className="col-md-7 col-sm-12 form-container">
                   <Form
