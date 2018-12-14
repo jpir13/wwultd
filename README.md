@@ -6,4 +6,4 @@
 * suggests a location based on activity
 * possibility to search current weather for any location
 
-![Screenshot](https://github.com/adam-p/markdown-here/raw/master/ss/wwultd.png "Screenshot")
+![Screenshot](https://github.com/jpir13/wwultd/raw/master/ss/wwultd.png "Screenshot")
